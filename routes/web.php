@@ -46,5 +46,8 @@ Route::middleware(['auth','web'])->group(function () {
         Route::get('/viewer/incubatees/{id}', [ViewerController::class, 'show'])->name('viewer.incubatee_show');
         Route::get('/viewer/products/{id}', [ViewerController::class, 'showproduct'])->name('viewer.product_show');
         Route::get('productlist', [ViewerController::class, 'productList']);
-            
+
+        Route::get('about-us', function () {
+                return view('viewer.about_us');
+            });
                
