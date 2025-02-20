@@ -26,6 +26,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{{ asset('DataTables/datatables.min.js') }}"></script>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 
@@ -118,7 +121,7 @@
 
 .bg-white {
     --bs-bg-opacity: 1;
-    background-color: rgb(34 173 82 / 56%) !important;
+    background-color: rgb(11 155 61) !important
 }
 footer {
     background: #25883c;
@@ -182,7 +185,7 @@ footer {
                             <a class="nav-link" href="{{ url('/milestones') }}">Milestones</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/about') }}">About Us</a>
+                            <a class="nav-link" href="{{ url('about-us') }}">About Us</a>
                         </li>
                         <!-- Dropdown for Incubatees and Products -->
                         <li class="nav-item dropdown">
