@@ -9,8 +9,8 @@
 
     /* Profile Picture Styling */
     .profile-image {
-        height: 200px;
-        width: 200px;
+        height: 150px;
+        width: 150px;
         object-fit: cover;
         border-radius: 50%;
         border: 3px solid #236903;
@@ -110,12 +110,9 @@
         <h1 class="mt-3">{{ $incubatee->incubatee_name }}</h1>
         <h3 class="text-muted">Business Name: {{ $incubatee->business_name }}</h3>
         <p>{{ $incubatee->description ?? 'No description available.' }}</p>
-
-        <!-- Total Products Section -->
-        <div class="total-products">
-            <h1>{{ $incubatee->products->count() }}</h1>
-            <h5>Total Products</h5>
-        </div>
+        <h1>{{ $incubatee->products->count() }}</h1>
+        <h5>Total Products</h5>
+    
 
         <!-- Additional Information (Location, Incubatee Type) -->
         <ul class="list-unstyled mt-3">
@@ -125,7 +122,7 @@
     </div>
 
     <!-- Products Column (Grid Layout) -->
-    <div class="col-md-8">
+    <div class="col-md-7">
         <h2>Products:</h2>
         @if($incubatee->products->isEmpty())
             <p class="text-center text-muted">No products available at the moment.</p>
