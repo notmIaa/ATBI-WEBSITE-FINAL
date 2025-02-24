@@ -1,13 +1,15 @@
 <?php
 
 namespace App\Models;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Incubatee extends Model
 {
     use HasFactory;
-    protected $fillable=[
+
+    protected $fillable = [
         'image',
         'incubatee_name',
         'business_name',
@@ -15,6 +17,6 @@ class Incubatee extends Model
 
     public function products()
     {
-        return $this->hasMany(IncubateeProduct::class, 'incubatee_id');
+        return $this->belongsToMany(IncubateeProduct::class, 'incubatee_id');
     }
 }
