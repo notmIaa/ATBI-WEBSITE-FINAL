@@ -14,9 +14,9 @@ class Incubatee extends Model
         'incubatee_name',
         'business_name',
     ];
-
-    public function products()
+    public function incubateeProducts()
     {
-        return $this->belongsToMany(IncubateeProduct::class, 'incubatee_id');
+        return $this->hasMany(IncubateeProduct::class, 'incubatee_id');
     }
 }
+
