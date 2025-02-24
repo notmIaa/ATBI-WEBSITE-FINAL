@@ -4,9 +4,9 @@
 
 @section('content')
     <div class="container mt-4">
-        <h1>Products for {{ $incubateeproduct->incubatee_name }}</h1>
+        <h1>Products for {{ $incubateeproduct->incubatee->incubatee_name }}</h1> 
 
-        @if($incubateeproduct->isEmpty())
+        @if(!$incubateeproduct) 
             <p>No products available for this incubatee.</p>
         @else
             <div class="row">
