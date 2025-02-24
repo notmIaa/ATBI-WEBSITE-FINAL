@@ -25,17 +25,20 @@ class ViewerController extends Controller
         return view('viewer.product_list', compact('incubateeproducts'));
     }
 
-    public function show($id)
-    {
-        $incubatee = Incubatee::with('products')->findOrFail($id);
-        return view('viewer.incubatee_show', compact('incubatee'));
-    }
+   public function show($id)
+{
+    $incubatee = Incubatee::with('incubateeProducts.productVariants')->findOrFail($id);
+    return view('viewer.incubatee_show', compact('incubatee'));
+}
 
-    public function showproduct($id)
-    {
-        $incubateeproduct = IncubateeProduct::findOrFail($id);
-        return view('admin.incubateeproduct_show', compact('incubateeproduct'));
-    }
 
+public function showproduct($id)
+{
+    $incubateeproduct = IncubateeProduct::with(['incubatee', 'productVariants'])->findOrFail($id);
+    
+    return view('viewer.product_show', compact('incubateeproduct'));
+}
+
+    
     
 }
