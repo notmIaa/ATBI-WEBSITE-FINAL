@@ -5,18 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Prodcut extends Model
+class Product extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'image',
-        'incubatee_name',
-        'business_name',
+        'incubatee_product_id', 
+        'product_name', 
+        'description', 
+        'product_image'
     ];
 
-    public function products()
+    public function incubateeProduct()
     {
-        return $this->hasMany(IncubateeProduct::class, 'incubatee_id');
+        return $this->belongsTo(IncubateeProduct::class, 'incubatee_product_id');
     }
 }
+
