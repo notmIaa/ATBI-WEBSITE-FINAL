@@ -1,14 +1,15 @@
 <?php
 
 namespace App\Models;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class IncubateeProduct extends Pivot
+class IncubateeProduct extends Model
 {
     use HasFactory;
-    protected $fillable=[
+
+    protected $fillable = [
         'incubatee_id',
         'product_image',
         'product_name',
@@ -19,5 +20,11 @@ class IncubateeProduct extends Pivot
     {
         return $this->belongsTo(Incubatee::class, 'incubatee_id');
     }
-    
+
+    // One IncubateeProduct has many Products
+    public function productVariants()
+    {
+        return $this->hasMany(Product::class, 'incubatee_product_id');
+    }
 }
+
