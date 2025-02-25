@@ -27,15 +27,26 @@ class ViewerController extends Controller
 
     public function show($id)
     {
-        $incubatee = Incubatee::with('products')->findOrFail($id);
+        $incubatee = Incubatee::with('incubateeProducts')->find($id);
+    
+        if (!$incubatee) {
+            return abort(404, 'Incubatee not found.');
+        }
+    
         return view('viewer.incubatee_show', compact('incubatee'));
     }
+    
 
-    public function showproduct($id)
-    {
-        $incubateeproduct = IncubateeProduct::findOrFail($id);
-        return view('admin.incubateeproduct_show', compact('incubateeproduct'));
-    }
 
+public function showproduct($id)
+{
+    $incubateeproduct = IncubateeProduct::with(['incubatee', 'productVariants'])->findOrFail($id);
+    $incubatee = $incubateeproduct->incubatee; // Retrieve the related incubatee
+    
+    return view('viewer.product_show', compact('incubateeproduct', 'incubatee'));
+}
+
+
+    
     
 }

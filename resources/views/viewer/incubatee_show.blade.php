@@ -7,7 +7,6 @@
         margin: 1rem;
     }
 
-    /* Profile Picture Styling */
     .profile-image {
         height: 150px;
         width: 150px;
@@ -17,19 +16,15 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    /* Column Styling */
     .col-md-4 {
-        border-right: 2px solid #ddd;  /* Light gray border */
+        border-right: 2px solid #ddd;
     }
 
-    /* Center Profile Information */
     .profile-info {
         text-align: center;
     }
 
-    /* Total Products Box Styling */
     .total-products {
-        background-color: none;
         color: #080000;
         width: 100px;
         height: 100px;
@@ -43,22 +38,6 @@
         margin-top: 20px;
     }
 
-    .total-products h1 {
-        font-size: 2.5rem;
-        margin: 0;
-    }
-
-    .total-products h5 {
-        font-size: 1rem;
-        margin: 0;
-    }
-
-    /* Additional Info Left Aligned */
-    .profile-info ul {
-        text-align: left;
-    }
-
-    /* Product Grid */
     .product-grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -66,7 +45,6 @@
         padding-top: 20px;
     }
 
-    /* Card Styling */
     .product-card {
         border: 1px solid #ddd;
         border-radius: 8px;
@@ -88,60 +66,53 @@
         text-align: center;
         padding: 15px;
     }
-
-    /* Title styling */
-    h1 {
-        font-size: 1.8rem;
-        font-weight: 900;
-    }
-
-    h3 {
-        font-size: 1.2rem;
-        font-weight: 500;
-    }
 </style>
 
 <div class="row mt-4">
-    <!-- Profile Information Column (Static) -->
-    <div class="col-md-4 profile-info">
+    <div class="col-md-4 profile-info text-center">
         <img src="{{ $incubatee->image ? asset('storage/' . $incubatee->image) : asset('storage/default_image.png') }}" 
-             class="profile-image" alt="{{ $incubatee->incubatee_name }}">
+             class="profile-image img-fluid rounded-circle" 
+             alt="{{ $incubatee->incubatee_name }}" style="width: 150px; height: 150px; object-fit: cover;">
 
         <h1 class="mt-3">{{ $incubatee->incubatee_name }}</h1>
         <h3 class="text-muted">Business Name: {{ $incubatee->business_name }}</h3>
         <p>{{ $incubatee->description ?? 'No description available.' }}</p>
-        <h1>{{ $incubatee->products->count() }}</h1>
+        
+        <h1>{{ $incubatee->incubateeProducts->count() }}</h1>
         <h5>Total Products</h5>
-    
 
-        <!-- Additional Information (Location, Incubatee Type) -->
         <ul class="list-unstyled mt-3">
             <li><i class="fas fa-map-marker-alt"></i> Location: {{ $incubatee->location ?? 'Not provided' }}</li>
             <li><i class="fas fa-users"></i> Incubatee Type: {{ $incubatee->incubatee_type ?? 'Not specified' }}</li>
         </ul>
     </div>
 
-    <!-- Products Column (Grid Layout) -->
-    <div class="col-md-7">
-        <h2>Products:</h2>
-        @if($incubatee->products->isEmpty())
-            <p class="text-center text-muted">No products available at the moment.</p>
-        @else
-            <div class="product-grid">
-                @foreach($incubatee->products as $product)
-                    <div class="product-card">
-                        <a href="{{ route('viewer.product_show', $product->id) }}" style="text-decoration: none; color: inherit;">
-                            <img src="{{ $product->product_image ? asset('storage/' . $product->product_image) : asset('storage/default_image.png') }}" 
-                                 alt="{{ $product->product_name }}">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $product->product_name }}</h5>
-                            </div>
-                        </a>
+    <div class="col-md-8">
+        <h2 class="mb-3">Products:</h2>
+        
+        @if($incubatee->incubateeProducts && $incubatee->incubateeProducts->isNotEmpty())
+            <div class="row">
+                @foreach($incubatee->incubateeProducts as $product)
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card shadow-sm">
+                            <a href="{{ route('viewer.product_show', $product->id) }}" style="text-decoration: none; color: inherit;">
+                                <img src="{{ $product->product_image ? asset('storage/' . $product->product_image) : asset('storage/default_image.png') }}" 
+                                     class="card-img-top" 
+                                     alt="{{ $product->product_name }}" 
+                                     style="height: 200px; object-fit: cover;">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">{{ $product->product_name }}</h5>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 @endforeach
             </div>
+        @else
+            <p class="text-center text-muted">No products available at the moment.</p>
         @endif
     </div>
 </div>
-
 @endsection
+
+@extends('layouts.footer')
