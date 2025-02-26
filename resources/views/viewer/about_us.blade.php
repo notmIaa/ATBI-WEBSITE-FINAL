@@ -38,8 +38,11 @@
     .vmg-container {
         display: flex;
         flex-wrap: wrap;
-        gap: 30px;
-        padding: 60px 0;
+        gap: 5rem;
+        padding: 5rem 5rem;
+        align-items: center;
+        background: #05ff1521;
+        
     }
 
     .vmg-left {
@@ -48,11 +51,12 @@
     }
 
     .vmg-right {
-        flex: 2;
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 20px;
-    }
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+    
 
     .vmg-box {
         background: white;
@@ -61,6 +65,7 @@
         box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
         text-align: center;
         transition: transform 0.3s ease;
+        margin: 1rem;
     }
 
     .vmg-box:hover {
@@ -69,7 +74,7 @@
 
     .vmg-box i {
         font-size: 2rem;
-        color: #007BFF;
+        color: #006900;
         margin-bottom: 10px;
     }
 
@@ -134,18 +139,26 @@
         opacity: 1;
     }
 
+
+
     .objectives-section {
-        background: #fff;
-        padding: 60px 20px;
-        border-radius: 10px;
-        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
-        text-align: center;
-    }
+    background: #e6ffe68b;
+    padding: 5rem 5rem;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: rgb(3, 120, 34);
+    font-family: "Outfit", serif;
+}
 
     .objectives-section h2 {
         font-size: 2.5rem;
         margin-bottom: 20px;
-        color: #007BFF;
+        color: #027100;
+        font-weight: 700;
+        font-family: "Outfit", serif;
+        text-align: center;
+
     }
 
     .objectives-list {
@@ -183,7 +196,7 @@
     <p>Empowering Agribusiness Through Innovation & Technology</p>
 </div>
 
-<div class="container">
+<div class=".about">
     <section class="vmg-container">
         <div class="vmg-left">
             <h5>ABOUT US</h5>
@@ -214,7 +227,9 @@
             </div>
         </div>
     </section>
+</div>
 
+<div class="objectives">
     <section class="objectives-section">
         <h2>Objectives</h2>
         <ul class="objectives-list">
@@ -226,7 +241,7 @@
     </section>
 </div>
 
-<div class="container">
+<div class="about">
     <section class="objectives-section">
         <h2>Technical Services</h2>
         <div class="carousel">

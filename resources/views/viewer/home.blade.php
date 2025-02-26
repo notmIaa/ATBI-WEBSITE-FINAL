@@ -28,18 +28,30 @@
         text-align: center;
         padding: 50px;
         font-family: "Outfit", serif;
-        
+        opacity: 0;
+        transform: translateY(-20px);
+        animation: fadeInUp 1.5s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     .hero-content h1 {
         font-size: 3.5rem;
         font-weight: bold;
-
     }
+
     .hero-content p {
         font-size: 1rem;
         font-weight: 500;
-
     }
 
     .btn-hero {
@@ -71,12 +83,13 @@
         margin-bottom: 50px;
         opacity: 0;
         transform: translateY(50px);
-        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     }
 
+    /* Step Animation */
     .step.active {
         opacity: 1;
         transform: translateY(0);
+        transition: opacity 1s ease-out, transform 1s ease-out;
     }
 
     .step:nth-child(even) {
@@ -97,22 +110,92 @@
 
     .step-text h2 {
         font-size: 2rem;
-        color: #118934;
-    }
-
-    h1{
-        font-family: "Outfit", serif !important;
+        color: #ffffff;
+        border-radius: 1rem;
+        background: #75d02b;
+        padding: 1rem;
         font-weight: 900;
+        margin:1rem;
     }
 
-    .step-text h2 {
-    font-size: 2rem;
-    color: #ffffff;
-    border-radius: 1rem;
-    background: #75d02b;
-    padding: 1rem;
-    font-weight: 900;
-    margin:1rem;
+
+ /* About Us Section Styling */
+ .about-container {
+        background: linear-gradient(to right, #31aa5c, #1d868a);
+        color: white;
+        text-align: center;
+        padding: 60px 10%;
+        border-radius: 15px;
+        margin: 50px auto;
+        max-width: 900px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .about-container h1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    .about-container p {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+
+    /* Contact Cards */
+    .contact-cards {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .contact-card {
+        background: white;
+        color: #1d868a;
+        padding: 20px;
+        border-radius: 10px;
+        width: 300px;
+        text-align: center;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease;
+    }
+
+    .contact-card:hover {
+        transform: scale(1.05);
+    }
+
+    .contact-card i {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        color: #31aa5c;
+    }
+
+    .contact-card a {
+        color: #1d868a;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+    .contact-card a:hover {
+        color: #31aa5c;
+        text-decoration: underline;
+    }
+
+    /* Fade-in Animation */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
 </style>
@@ -123,7 +206,7 @@
         <h3>Welcome!</h3>
         <h1>BSU-Agribased Technology Business Incubator</h1>
         <p>Where the seeds of smallholder agribusiness are sown, grown and bear their first fruits..</p>
-        <a href="#how-to-join" class="btn-hero">How to Become an Incubatee</a>
+        <a href="#how-to-join" class="btn-hero">Become an Incubatee</a>
     </div>
 </section>
 
@@ -164,6 +247,32 @@
         </div>
     </div>
 </section>
+
+<!-- About Us Section -->
+<section id="about-us" class="about-container">
+    <h1>About Us</h1>
+    <p>For more information, feel free to reach out to us:</p>
+
+    <div class="contact-cards">
+        <!-- Email Card -->
+        <div class="contact-card">
+            <i class="fas fa-envelope"></i>
+            <p><strong>Email</strong></p>
+            <a href="mailto:atbi.bsu.gov.ph@gmail.com">bsu.edu.gov.ph@gmail.com</a>
+        </div>
+
+        <!-- Facebook Card -->
+        <div class="contact-card">
+            <i class="fab fa-facebook"></i>
+            <p><strong>Facebook Page</strong></p>
+            <a href="https://facebook.com/" target="_blank">Visit our Facebook</a>
+        </div>
+    </div>
+</section>
+
+
+
+
 
 <script>
     AOS.init(); // Initialize AOS library

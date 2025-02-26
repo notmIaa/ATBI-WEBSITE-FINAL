@@ -29,6 +29,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Outfit:wght@100..900&family=Sora:wght@100..800&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+
 
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
@@ -259,6 +262,18 @@ footer {
         <a href="{{ url('/contact') }}">Contact</a>
     </div> --}}
 </footer>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        AOS.init({
+            duration: 1000, // Animation duration
+            once: false, // Animation triggers every scroll
+        });
+    });
+</script>
+
 </body>
 
 
