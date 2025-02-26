@@ -110,30 +110,6 @@
 
     .step-text h2 {
         font-size: 2rem;
-        color: #ffffff;
-        border-radius: 1rem;
-        background: #75d02b;
-        padding: 1rem;
-        font-weight: 900;
-        margin:1rem;
-    }
-
-
- /* About Us Section Styling */
- .about-container {
-        background: linear-gradient(to right, #31aa5c, #1d868a);
-        color: white;
-        text-align: center;
-        padding: 60px 10%;
-        border-radius: 15px;
-        margin: 50px auto;
-        max-width: 900px;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-        animation: fadeIn 1.5s ease-in-out;
-    }
-
-    .about-container h1 {
-        font-size: 2.5rem;
         font-weight: bold;
         margin-bottom: 15px;
         text-transform: uppercase;
@@ -239,33 +215,20 @@
         </div>
     </div>
 
-    <div class="step" data-aos="fade-up">
-        <img src="{{ asset('images/Start.png') }}" alt="Start Your Incubation Journey">
-        <div class="step-text">
-            <h2>Step 4: Start Your Incubation Journey</h2>
-            <p>Once accepted, you'll receive mentorship, funding, and resources.</p>
-        </div>
-    </div>
-</section>
+                <div class="col-md-6 mb-3">
+                    <div class="card p-3">
+                        <h2>00</h2>
+                        <p>Incubatees in Mindanao</p>
+                    </div>
+                </div>
 
-<!-- About Us Section -->
-<section id="about-us" class="about-container">
-    <h1>About Us</h1>
-    <p>For more information, feel free to reach out to us:</p>
-
-    <div class="contact-cards">
-        <!-- Email Card -->
-        <div class="contact-card">
-            <i class="fas fa-envelope"></i>
-            <p><strong>Email</strong></p>
-            <a href="mailto:atbi.bsu.gov.ph@gmail.com">bsu.edu.gov.ph@gmail.com</a>
-        </div>
-
-        <!-- Facebook Card -->
-        <div class="contact-card">
-            <i class="fab fa-facebook"></i>
-            <p><strong>Facebook Page</strong></p>
-            <a href="https://facebook.com/" target="_blank">Visit our Facebook</a>
+                <div class="col-md-6 mb-3">
+                    <div class="card p-3">
+                        <h2>00</h2>
+                        <p>Incubatees Nationwide</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>

@@ -15,10 +15,7 @@ class Incubatee extends Model
         'business_name',
     ];
 
-    /**
-     * One Incubatee has many IncubateeProducts.
-     */
-    public function incubateeProducts()
+    public function products()
     {
         return $this->hasMany(IncubateeProduct::class, 'incubatee_id');
     }
@@ -40,3 +37,4 @@ class Incubatee extends Model
         );
     }
 }
+
