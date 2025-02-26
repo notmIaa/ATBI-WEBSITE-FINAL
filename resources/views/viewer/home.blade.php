@@ -104,6 +104,17 @@
         font-family: "Outfit", serif !important;
         font-weight: 900;
     }
+
+    .step-text h2 {
+    font-size: 2rem;
+    color: #ffffff;
+    border-radius: 1rem;
+    background: #75d02b;
+    padding: 1rem;
+    font-weight: 900;
+    margin:1rem;
+    }
+
 </style>
 
 <!-- Hero Section -->

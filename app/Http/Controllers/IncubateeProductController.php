@@ -91,7 +91,4 @@ class IncubateeProductController extends Controller
             $incubateeproduct = IncubateeProduct::with('products')->findOrFail($id);
             return view('admin.incubateeproduct_show', compact('incubateeproduct'));
         }
-
-    
-
 }
