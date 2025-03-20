@@ -10,15 +10,15 @@ class Product extends Model
     use HasFactory;
 
     protected $fillable = [
-        'incubatee_product_id', 
-        'product_name', 
-        'description', 
-        'product_image'
+        'image',
+        'incubatee_name',
+        'business_name',
     ];
 
-    public function incubateeProduct()
+    public function incubatees()
     {
-        return $this->belongsTo(IncubateeProduct::class, 'incubatee_product_id');
+        return $this->belongsToMany(Incubatee::class, 'incubatee_product', 'product_id', 'incubatee_id')
+                    ->withPivot(['product_image', 'product_name', 'description']);
     }
+    
 }
-

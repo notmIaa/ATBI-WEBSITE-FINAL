@@ -34,7 +34,7 @@ class ViewerController extends Controller
     public function showproduct($id)
     {
         $incubateeproduct = IncubateeProduct::findOrFail($id);
-        return view('admin.incubateeproduct_show', compact('incubateeproduct'));
+        return view('viewer.product_show', compact('incubateeproduct'));
     }
 
     

@@ -78,7 +78,8 @@
         <h3 class="text-muted">Business Name: {{ $incubatee->business_name }}</h3>
         <p>{{ $incubatee->description ?? 'No description available.' }}</p>
         
-        <h1>{{ $incubatee->incubateeProducts->count() }}</h1>
+        <!-- Use optional() to avoid calling count() on null -->
+        <h1>{{ optional($incubatee->incubateeProducts)->count() ?? 0 }}</h1>
         <h5>Total Products</h5>
 
         <ul class="list-unstyled mt-3">
@@ -90,7 +91,8 @@
     <div class="col-md-8">
         <h2 class="mb-3">Products:</h2>
         
-        @if($incubatee->incubateeProducts && $incubatee->incubateeProducts->isNotEmpty())
+        <!-- Check if products exist -->
+        @if(optional($incubatee->incubateeProducts)->isNotEmpty())
             <div class="row">
                 @foreach($incubatee->incubateeProducts as $product)
                     <div class="col-md-6 col-lg-4 mb-4">
@@ -113,6 +115,5 @@
         @endif
     </div>
 </div>
-@endsection
 
-@extends('layouts.footer')
+@endsection

@@ -214,20 +214,6 @@
             <p>Our team will assess your business idea and provide feedback.</p>
         </div>
     </div>
-
-                <div class="col-md-6 mb-3">
-                    <div class="card p-3">
-                        <h2>00</h2>
-                        <p>Incubatees in Mindanao</p>
-                    </div>
-                </div>
-
-                <div class="col-md-6 mb-3">
-                    <div class="card p-3">
-                        <h2>00</h2>
-                        <p>Incubatees Nationwide</p>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
